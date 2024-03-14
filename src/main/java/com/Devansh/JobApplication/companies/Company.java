@@ -1,6 +1,7 @@
 package com.Devansh.JobApplication.companies;
 
 import com.Devansh.JobApplication.job.Job;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -11,7 +12,8 @@ public class Company {
     Long id;
     String name;
     String description;
-    @OneToMany
+    @JsonIgnore
+    @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
 

@@ -1,5 +1,7 @@
 package com.Devansh.JobApplication.job;
 
+import com.Devansh.JobApplication.companies.Company;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -15,6 +17,17 @@ public class Job implements Serializable {
     private String minSalary ;
     private String maxSalary;
     private String location ;
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    @ManyToOne
+    private Company company;
 
     public Job() {
     }
